@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Opus.Mobile.API/Opus.Mobile.API.csproj" />
+  <Project Path="Opus.Mobile.Data/Opus.Mobile.Data.csproj" />
+  <Project Path="Opus.Mobile/Opus.Mobile.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>
