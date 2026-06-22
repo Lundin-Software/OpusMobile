@@ -1,0 +1,2041 @@
+﻿{
+   "CodeGenerationMode": 6,
+   "ContextClassName": "OpusDBContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "IrregularWords": null,
+   "MinimumProductVersion": "2.6.1244",
+   "ModelNamespace": null,
+   "OutputContextPath": "Context",
+   "OutputPath": "Models",
+   "PluralRules": null,
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Opus.Mobile.Data",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "SingularRules": null,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[AccomplishData]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Accounts]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ApplicationView]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ApplicationViewAction]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ApplicationViewTable]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ApplicationViewTableColumn]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ApplicationViewTableColumnMandatoryAction]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Articles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesBarCodes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesData]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesDefaultStocks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesGroups]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesImages]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesReferences]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesStocksMinimumDefaultQuantity]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesSuppliers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesTEMP]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ArticlesWebSites]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BakkVoninIDs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BarcodereaderSessions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CheckingStocks_Header]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CheckingStocks_Positions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CheckingStocks_SelectedRacks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CheckingStocks_SelectedShelves]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cities]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Company]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CompanyDeliveryAddress]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentAccess]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentClassData]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentClasses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentClassFields]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentFieldComboBoxValues]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentFieldTypes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentGroupsOfArticles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentHours]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentLogs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentMoveCopyLogs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentMoveCopyLogsParents]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentRoles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Components]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentSFILogs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentSuppliers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ComponentsWithReferencesThatAreNotInTheDB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ConsumingArticles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ConsumingArticles_ArticlesIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ConsumingArticlesCheckingStocks_ArticlesIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Counters]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CountersHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Countries]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Currencies]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Dates]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DefaultArticlesFields]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DefaultArticlesFieldsComboBoxValues]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DefaultComponentFields]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DefaultComponentFieldsComboBoxValues]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DELETEDRows]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Departments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Documents]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DocumentTypes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[employee_application_view_setting]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Employees]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Employees_login]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Employees_report_printer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EmployeesLogs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EmployeesMenu]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EmployeesRoleApplicationView]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EmployeesRoleApplicationViewAction]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EmployeesRoles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EnglishChinese]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Expenses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FieldsTypes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FilesDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FilesLogs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FilesRemarks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FilesStates]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FilesTable]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GroupsOfArticles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GroupsOfArticlesFields]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GroupsOfArticlesFieldsComboBoxValues]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GroupsOfSuppliers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HistoryChangeColumns]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HistoryChangeTables]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IntervalTypes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[InvoiceEventTypes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IPOLPO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Manufacturers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Materials]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MenuTable]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MESSAGES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Module]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MonthDays]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MovingArticles_Header]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MovingArticles_Positions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NotDELETEDRows]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NotificationDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Notifications]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NotificationTypes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OperationHours]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Orders]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OrdersArticles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OrdersDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OrdersLocationsHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OrdersLogs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OrdersUnscheduledTasks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Purchases]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[QrCodes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Racks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ReceivingArticles_Header]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ReceivingArticles_Positions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ReceivingArticles_Positions2]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ReferencesTypes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[report]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[report_folder]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[report_server]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Reports]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ResourcesTable]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Roles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ServicesList]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Shelves]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StocksEvidence]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StocksHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StocksList]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Suppliers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Suppliers_GroupsOfSuppliers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SuppliersContacts]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SuppliersDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SuppliersInvoices]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SuppliersInvoices_Events]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SuppliersInvoices_OrdersArticles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SuppliersInvoicesDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SuppliersInvoicesOrdersUnscheduledTasks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SynchChangeLog]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SynchIdMap]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[T12]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TableFieldComboBoxValues]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TableFieldData]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TableFields]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tables]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskClasses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskDefaultArticles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskFieldComboBoxValues]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskFieldData]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskFields]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskIntervals]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskIntervalsDates]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskIntervalsStoppedRestarted]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskLogDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskLogRemarks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskLogs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskLogsList]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskLogUsedArticles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskNameAndDescriptionHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tasks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskTypes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMP_Articles_UnitsOfMeasure_ArticlesSuppliers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMP_COMP1]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TempComponentHoursAll]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMPFTasks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMPIntervals]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMPTasks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UnitsOfMeasure]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UnscheduledTaskDependence]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UnscheduledTaskDocuments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UnscheduledTaskNeededArticles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UnscheduledTaskRemarks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UnscheduledTasks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UnscheduledTasksSendEmailOptions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[user_application_view_favourite]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserRole]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Users]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[util_change_log]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[util_change_log_column]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[util_change_log_current]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[util_change_log_session]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[util_login]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[util_refresh_status]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[WeekDaysOrMonths]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[XamaLogin]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ev_articles]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[ev_articles_consumption_shelves_racks_stocks]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[ev_articles_suppliers]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[v_test]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VArticles_UnitsOfMeasure_ArticlesSuppliers]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VArticlesDefaultStocks]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VComponentHoursAll]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VComponents]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VComponentsSelectGroupArtIDAndCount]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VComponentsTree]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VDocuments]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VGetStockHavsbrun]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VNewLocations]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VNotifications]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VOrders]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VOrdersReceivedArticles]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiArticles]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiComponentGroup]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiComponentRoot]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiComponents]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiCurrentStock]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiFiles]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiOrderItems]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiOrders]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiReceivedArticles]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiSuppliers]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiTaskTimeline]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vPowerbiUsedArticles]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VReceivingArticles_Positions]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VShelvesRacksStocks]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VStocksEvidence]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VSuppliersInvoices]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VSysTables]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VTaskIntervals]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VTaskLogs]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[ActualizeStock1]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AfterCreateDB]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AfterUpdateDb]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[BarcodeReaderCheckingArticle]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CloseOrder]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ComponentsActivateAll]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ComponentsActivateDeactivate]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ComponentsChangeCounter]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ComponentsCutCopyPaste]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ComponentsMoveAboveUnder]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ConvertEmployeesLevels]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CreateConsumedArticlesAndPurchases]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CreateOrderFromUnscheduledTasks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CreatePurchaseAndAssignConsumingArticlesToIt]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CreateSupplierInvoice]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteAllUnacomplishedLogsFromDB]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteComponents]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteEmptyPurchases]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteSuppliers]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteTaskLogsList]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteUnscheduledTasksDependence]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DocumentsBelongTo]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DuplicateComponentClass]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DuplicateOrder]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetAllSubComponents]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetArticleTaskComponentInterval]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetComponentRootID]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetComponentsWEBApp]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetEmployeeComponentAccess]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetStock_allemptystocks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetStock]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetStockBarCode]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetStockDifferenceYear]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ImportHoursFromTxtFile]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IncrementHours]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertCertainTaskIntervalIntoTaskLogs]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertComponentsAccessAfterAddingRootComponent]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[INSERTDatesIntoDatesTable]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertMovingArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertProductionLocation]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertSuppliersArtNr]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertTempComponentHoursAll]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertUnscheduledTasks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertUnscheduledTasksDependence]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LoadArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LoadArticlesWPF]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LoadComponents]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LoadConsumingArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LoadDocuments]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LoadSuppliersWPF]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LoadTaskDefaultArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LoadUnscheduledTaskNeededArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[MarkOrderAsDeleted]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[OrdersReceivedArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PAfterIncreasingStock_NEW]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PAfterIncreasingStock]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PBackup]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PComponentMoveCopyLogsParents]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PComponentsHours]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PComponentsList]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PCountersHistory]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PCountHoursAutomatically]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PGetComponentTasks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PGetComponentTasksIntervals]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PGetTaskFields]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PGetTaskLogs]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PHistoryChangeColumns]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PHistoryChangeTables]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PIntervals]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PNewLocation]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[POrdersNeededArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PSelectExportConsumingArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PSelectTaskInterval]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PSubComponents]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PSubComponentsAndParameterComponent]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PTaskFieldData]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PTaskLogsList]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PTaskLogsListAutomatic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PTasks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PTasks2]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PTempFTasks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PTriggerConsumingArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PurchasesMerge]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PVONINMoveTable]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PWEBScheduledUnscheduledTasks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PWPF_Articles_UnitsOfMeasure_ArticlesSuppliers]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportAccounts]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportAllRoles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportAllSubComponents]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportAllSubComponents1]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportAllSubComponentsWithData]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportAllSubComponentsWithData1]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportAllSubComponentsWithDataVONINFinnurFri]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportAllSubComponentsWithDataVONINFinnurFri1]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportArticlesBelowMinimumStock]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportArticlesForACertainStock]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportArticlesForOneGroup]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportCheckingStocksHeader]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportCheckingStocksPositions]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportComponentsAllLogs]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportComponentsTotalsMTH]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportConsumedArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportContainerComponentsPrKunda]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportCounters]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportCurrencies]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportDailyConsumingArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportDepartments]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportHDFStatusReportMaintenanceTasks_(Branches)_ValuesForGreenParameter]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportMaintananceStatus]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportOrders_Orders]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportOrders_OrdersArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportOrdersExtraFields1]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportOrdersMTH_DS_Company]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportPurchases]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportRingsAndNets]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportsMoveUpDown]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportStatusreportMaintenanceTasks_Task_Type]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportStocks_OLD_23AUG2025]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportStocks_OLD]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportStocks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportStocksRacksShelves]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportSubKvorn]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportSuppliers]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReportUsedArticlesForAComponent]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ResetTaskIntervals]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ScheduledStoredProcedures]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectArticleGroupsData]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectNotifications]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectScheduledUnscheduledTasks_ByLaur]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectScheduledUnscheduledTasks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectScheduledUnscheduledTasksNextPreviousWeek]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectToDoList]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectUnscheduledTasksAndNotifications]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SendTaskInToDoList]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SetLastCostPrice]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SetLastTaskLogID]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ShelvesCopyPaste]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SplitConsumingArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[spXama_Articles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SpXama_ComponentClassFields]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SpXama_ComponentDetails]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SpXama_CreateCheckingStocksOrMovingArticles]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SpXama_CreateCosumingArticlesAndPurchaseAtAccomplishTask]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SpXama_CreateUnscheduledTask]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SpXama_LookupComponents]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[spXama_LookupTaskClasses]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[spXama_TaskClassFields]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[sqlstring]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Status]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SuppliersInvoicesConfirm]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[TasksCopyPaste]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[TaskStopRestart]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ToDoListWEBApp]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[TreeViewMoveUpDown]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UnaccomplishTasks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UnaccomplishUnscheduledTasks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UnscheduledTaskCutCopyPaste]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UnscheduledTasksMoveUpDown]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateArticlesSetInactive]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateCostPrice]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateOrderAmount]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateTaskLogs]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UPDATETaskLogsSetFields]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_lookup_UserRoleInfo]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_startup_ApplicationViewInfo_Load]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_Users_UserInfo]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_Users_UserInfo12]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_util_changelog_sync_columns]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_util_changelog_sync_triggers]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_util_log_begin_session]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_util_log_get_changes]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_util_log_process_changes]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_app_util_refresh_status]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_cleanup_login_history]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_util_login]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_util_opus_config]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_util_opus_fill_mandatory_tables]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_util_opus_populate_generated_data]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_util_opus_populate_triggers]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[util_opus_config]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CalculateTotal]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[CalculateTotalWithDefaults]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FAccesLevelEmployees]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FAccesLevelRoles]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FAccessRights]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FAliringarComponents]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FArticles_UnitsOfMeasure_ArticlesSuppliers]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FArticles]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FArticlesBelowMinimumStock]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FArticlesDefaultStocks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FArticlesOpenedOrders]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentAllParents]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentClasses]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentDataFields]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentDoesntHaveCounters]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentHours]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentHoursAll]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentHoursAllV2]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentHoursDifference]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentList]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentMoveCopyLogs]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponents]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentsAllReferences]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentTree_NEW]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FComponentTree]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FCounters]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FDateOnly]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FDayName]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FEmployees]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FEmployeesByRoleID]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FEmpty]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FExchangeRate]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FFilesArticles]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FFirstDateOfMonth]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetAllActiveTasks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetAllRoles]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetArticleStockInformation]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetArticleTaskComponentInterval]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetNAPRoles]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetOperations]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetStock_NEW]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetStock]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetStockTotal_NEW]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetStockTotal]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGetTaskLogs]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FGroupsOfArticles]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FHDFBranches]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FInitials]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FIntervals]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FIntervalsChar]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FIntervalsDueDate]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FIntervalsLowerWeight]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FIsMTH]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FLastCostPrice]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FLastTaskLogRow]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FMaxDate]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FMaxOrderInternalNr]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FMonthName]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FOneComponentTree]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FOpenedOrdersQuantity]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FRacks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FRoleByID]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FRptTaskSummary_AccomplishedTasks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FRptTaskSummary_NextTasks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FRptTaskSummary_Notifications]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FRptTaskSummary_UnscheduledTasks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSelectParameter]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSelectScheduledUnscheduledTasks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSfi]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FShelves]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSplitString]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSplitStringToColumn]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSplitStringToTable]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FStocksBelowMinimum]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FStocksList]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSubComponents]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSubComponents1]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSubComponentsAndParameterComponent]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSubComponentsCount]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSuppliers]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSuppliersInvoiceEmailBody]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FSuppliersInvoicesStatus]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FTableColumns]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FTableColumnsList]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FTableFieldComboBoxValues]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FTaskClasses]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FTaskFieldData]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FTaskLogAccomplish]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FTasks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FTasksStatus]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FTaskTypes]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[fu_app_changelog_session_id]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[fu_app_userid]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FUsedArticles]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FUsedArticlesScheduledTasks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FUsedArticlesUnscheduledTasks]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FUserRolesOnly]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[FWEBGetStock]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[StringConcatenateAggregate]",
+         "ObjectType": 2
+      },
+      {
+         "Name": "[dbo].[tvf_ComponentMoveCopyLogs_Debug]",
+         "ObjectType": 2
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}
