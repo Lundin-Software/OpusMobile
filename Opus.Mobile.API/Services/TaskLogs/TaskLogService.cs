@@ -21,7 +21,7 @@ public class TaskLogService(OpusDBContext ctx) : ITaskLogService
 
         if (taskLog is null)
         {
-            taskLog = new TaskLogs
+            taskLog = new Data.Models.TaskLogs
             {
                 TaskId = request.TaskId.Value,
                 TaskIntervalsId = request.TaskIntervalId,
