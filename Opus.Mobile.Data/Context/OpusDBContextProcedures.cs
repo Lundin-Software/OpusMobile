@@ -4867,6 +4867,38 @@ namespace Opus.Mobile.Data.Context
             return _;
         }
 
+        public virtual async Task<List<SpXama_ComponentTasksResult>> SpXama_ComponentTasksAsync(int? employeeId, int? componentID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "EmployeeId",
+                    Value = employeeId ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "ComponentID",
+                    Value = componentID ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<SpXama_ComponentTasksResult>("EXEC @returnValue = [dbo].[SpXama_ComponentTasks] @EmployeeId = @EmployeeId, @ComponentID = @ComponentID", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<int> SpXama_CreateCheckingStocksOrMovingArticlesAsync(int? pArtID, int? pOldShelveID, int? pNewShelveID, double? pOldQuantity, double? pNewQuantity, int? pUserID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter

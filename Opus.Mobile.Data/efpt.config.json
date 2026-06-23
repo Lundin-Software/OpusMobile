@@ -1455,6 +1455,10 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[SpXama_ComponentTasks]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[SpXama_CreateCheckingStocksOrMovingArticles]",
          "ObjectType": 1
       },

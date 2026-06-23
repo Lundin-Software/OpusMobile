@@ -1,10 +1,17 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using NLog;
 using Opus.Mobile.API.Helpers;
+using Opus.Mobile.API.Services.Authentication;
+using Opus.Mobile.API.Services.Components;
 using Opus.Mobile.API.Services.Logging;
+using Opus.Mobile.API.Services.Lookup;
+using Opus.Mobile.API.Services.TaskLogs;
 using Opus.Mobile.Data.Context;
 using Opus.Mobile.Shared.API;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,12 +44,12 @@ builder.Services.AddSwaggerGen(options =>
         Name = "Authorization",
         Type = SecuritySchemeType.Http,
         BearerFormat = "JWT",
-        Scheme = "bearer"
+        Scheme = "Bearer"
     });
 
     options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
     {
-        [new OpenApiSecuritySchemeReference("bearer", document)] = []
+        [new OpenApiSecuritySchemeReference("Bearer", document)] = []
     });
 });
 
@@ -59,6 +66,35 @@ builder.Services.AddDbContext<OpusDBContext>(options =>
 
 //Services
 builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
+builder.Services.AddScoped<ILookupService, LookupService>();
+builder.Services.AddScoped<IComponentService, ComponentService>();
+builder.Services.AddScoped<ITaskLogService, TaskLogService>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+#endregion
+
+#region Authentication/Authorization
+
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = ConfigurationHelpers.GetMandatoryValue("Jwt:Issuer"),
+        ValidAudience = ConfigurationHelpers.GetMandatoryValue("Jwt:Issuer"),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigurationHelpers.GetMandatoryValue("Jwt:Secret")))
+    };
+});
+
+builder.Services.AddAuthorization();
 
 #endregion
 
@@ -78,6 +114,7 @@ app.UseSwaggerUI(options =>
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
