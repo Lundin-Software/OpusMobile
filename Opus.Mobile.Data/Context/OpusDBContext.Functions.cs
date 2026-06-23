@@ -440,12 +440,6 @@ namespace Opus.Mobile.Data.Context
             throw new NotSupportedException("This method can only be called from Entity Framework Core queries");
         }
 
-        [DbFunction("FSplitStringToColumn", "dbo")]
-        public IQueryable<FSplitStringToColumnResult> FSplitStringToColumn(string string, string delimiter)
-        {
-            return FromExpression(() => FSplitStringToColumn(string, delimiter));
-        }
-
         [DbFunction("FSplitStringToTable", "dbo")]
         public IQueryable<FSplitStringToTableResult> FSplitStringToTable(string ItemList, string delimiter)
         {
@@ -670,7 +664,6 @@ namespace Opus.Mobile.Data.Context
             modelBuilder.Entity<FRptTaskSummary_UnscheduledTasksResult>().HasNoKey();
             modelBuilder.Entity<FSelectScheduledUnscheduledTasksResult>().HasNoKey();
             modelBuilder.Entity<FShelvesResult>().HasNoKey();
-            modelBuilder.Entity<FSplitStringToColumnResult>().HasNoKey();
             modelBuilder.Entity<FSplitStringToTableResult>().HasNoKey();
             modelBuilder.Entity<FStocksBelowMinimumResult>().HasNoKey();
             modelBuilder.Entity<FStocksListResult>().HasNoKey();

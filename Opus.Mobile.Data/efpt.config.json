@@ -1895,10 +1895,6 @@
          "ObjectType": 2
       },
       {
-         "Name": "[dbo].[FSplitStringToColumn]",
-         "ObjectType": 2
-      },
-      {
          "Name": "[dbo].[FSplitStringToTable]",
          "ObjectType": 2
       },

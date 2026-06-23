@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="Opus.Mobile.API/Opus.Mobile.API.csproj" />
   <Project Path="Opus.Mobile.Data/Opus.Mobile.Data.csproj" />
+  <Project Path="Opus.Mobile.Shared/Opus.Mobile.Shared.csproj" Id="4c9147e7-9706-4aa8-9dee-c33790fe61e6" />
   <Project Path="Opus.Mobile/Opus.Mobile.csproj">
     <Deploy Solution="Debug|*" />
   </Project>
