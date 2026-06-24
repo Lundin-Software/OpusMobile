@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Opus.Mobile.Data.Context;
+using Opus.Mobile.Data.Models;
 using Opus.Mobile.Shared.Lookup;
 
 namespace Opus.Mobile.API.Services.Lookup;
@@ -226,8 +227,123 @@ public class LookupService(OpusDBContext ctx) : ILookupService
         });
     }
 
+    public async Task<IEnumerable<ArticleShelveLookupItem>> GetArticleShelves(int articleId)
+    {
+        List<ArticleShelveLookupItem> shelves = [];
+
+        var articleStocks = await ctx.FGetStock(DateTime.Now, articleId, null, null, null)
+            .Where(stock => stock.Quantity.HasValue && stock.Quantity > 0)
+            .ToListAsync();
+
+        foreach (var articleStock in articleStocks)
+        {
+            var shelve = await ctx.Shelves
+                .AsNoTracking()
+                .Include(shelve => shelve.Rack)
+                    .ThenInclude(rack => rack.Stock)
+                .FirstOrDefaultAsync(shelve => shelve.Id == articleStock.ShelveID);
+
+            if (shelve is null)
+                continue;
+
+            shelves.Add(new ArticleShelveLookupItem
+            {
+                ShelveId = shelve.Id,
+                RackId = articleStock.RackID ?? shelve.RackId,
+                Name = $"{ConstructShelveName(shelve)}({articleStock.Quantity})",
+                Quantity = Convert.ToInt32(articleStock.Quantity)
+            });
+        }
+
+        if (shelves.Count > 1)
+        {
+            shelves.Insert(0, new ArticleShelveLookupItem
+            {
+                ShelveId = -1,
+                Name = "PICK A SHELVE.."
+            });
+        }
+
+        return shelves;
+    }
+
+    public async Task<IEnumerable<ShelveLookupItem>> GetShelves(int rackId)
+    {
+        return await ctx.Shelves
+            .AsNoTracking()
+            .Where(shelve => shelve.RackId == rackId)
+            .OrderBy(shelve => shelve.Name)
+            .Select(shelve => new ShelveLookupItem
+            {
+                ShelveId = shelve.Id,
+                RackId = shelve.RackId,
+                Name = shelve.Name
+            })
+            .ToListAsync();
+    }
+
+    public async Task<IEnumerable<RackLookupItem>> GetRacks(int stockId)
+    {
+        var query = ctx.Racks.AsNoTracking();
+
+        if (stockId != 0)
+            query = query.Where(rack => rack.StockId == stockId);
+
+        return await query
+            .OrderBy(rack => rack.Name)
+            .Select(rack => new RackLookupItem
+            {
+                RackId = rack.Id,
+                StockId = rack.StockId,
+                Name = rack.Name
+            })
+            .ToListAsync();
+    }
+
+    public async Task<IEnumerable<StockLookupItem>> GetStocks()
+    {
+        return await ctx.StocksList
+            .AsNoTracking()
+            .OrderBy(stock => stock.Name)
+            .Select(stock => new StockLookupItem
+            {
+                StockId = stock.Id,
+                ShortName = stock.ShortName,
+                Name = stock.Name,
+                Address = stock.Adress
+            })
+            .ToListAsync();
+    }
+
+    public async Task<IEnumerable<DepartmentLookupItem>> GetDepartments()
+    {
+        return await ctx.Departments
+            .AsNoTracking()
+            .OrderBy(department => department.Id)
+            .Select(department => new DepartmentLookupItem
+            {
+                Id = department.Id
+            })
+            .ToListAsync();
+    }
+
     private static string Normalize(string? value) =>
         string.IsNullOrWhiteSpace(value)
             ? ""
             : value.Trim().ToUpperInvariant();
+
+    private static string ConstructShelveName(Shelves shelve)
+    {
+        var name = shelve.Name ?? "";
+
+        if (shelve.Rack is not null)
+        {
+            name += " " + shelve.Rack.Name;
+
+            if (shelve.Rack.Stock is not null)
+                name += " " + shelve.Rack.Stock.Name;
+        }
+
+        return name;
+    }
 }

@@ -2,6 +2,7 @@
 using Opus.Mobile.Data.Context;
 using Opus.Mobile.Data.Models;
 using Opus.Mobile.Shared.Components;
+using Opus.Mobile.Shared.Documents;
 
 namespace Opus.Mobile.API.Services.Components;
 
@@ -78,9 +79,9 @@ public class ComponentService(OpusDBContext ctx) : IComponentService
     }
 
     public async Task<ComponentDocumentItem> SaveComponentDocument(
-    int userId,
-    int componentId,
-    SaveComponentDocumentRequest request)
+        int userId,
+        int componentId,
+        SaveComponentDocumentRequest request)
     {
         var docBytes = string.IsNullOrWhiteSpace(request.DocBase64Image)
             ? null
@@ -96,7 +97,7 @@ public class ComponentService(OpusDBContext ctx) : IComponentService
 
         if (componentDocument is null)
         {
-            var document = new Documents
+            var document = new Data.Models.Documents
             {
                 Doc = docBytes,
                 Extension = ".jpg",
@@ -186,6 +187,24 @@ public class ComponentService(OpusDBContext ctx) : IComponentService
         ctx.ComponentDocuments.Remove(componentDocument);
 
         await ctx.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<DocumentItem>> GetComponentFileDocuments(int componentId)
+    {
+        return await ctx.ComponentDocuments
+            .AsNoTracking()
+            .Where(componentDocument =>
+                componentDocument.ComponentId == componentId &&
+                componentDocument.Document != null &&
+                componentDocument.Document.Extension != null &&
+                documentExtensions.Contains(componentDocument.Document.Extension.ToLower()))
+            .Select(componentDocument => new DocumentItem
+            {
+                Id = componentDocument.Document!.Id,
+                Description = componentDocument.Document.Description,
+                Extension = componentDocument.Document.Extension
+            })
+            .ToListAsync();
     }
 
     private async Task<int> ResolveComponentId(int componentId)
@@ -293,4 +312,14 @@ public class ComponentService(OpusDBContext ctx) : IComponentService
             TaskIntervalId = task.TaskIntervalId
         }).ToList();
     }
+
+    private static string[] documentExtensions =
+    [
+        ".pdf",
+        ".xlsx",
+        ".xls",
+        ".doc",
+        ".docx"
+    ];
+
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Opus.Mobile.API.Services.Components;
 using Opus.Mobile.Shared.API;
 using Opus.Mobile.Shared.Components;
+using Opus.Mobile.Shared.Documents;
 using System.Security.Claims;
 
 namespace Opus.Mobile.API.Controllers;
@@ -44,6 +45,16 @@ public class ComponentsController(IComponentService componentService) : Controll
         var documents = await componentService.GetComponentDocuments(componentId);
 
         return Ok(new APIResponse<IEnumerable<ComponentDocumentItem>>(documents));
+    }
+
+    [Authorize]
+    [HttpGet("{componentId:int}/FileDocuments")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<IEnumerable<DocumentItem>>))]
+    public async Task<ActionResult> GetComponentFileDocuments([FromRoute] int componentId)
+    {
+        var documents = await componentService.GetComponentFileDocuments(componentId);
+
+        return Ok(new APIResponse<IEnumerable<DocumentItem>>(documents));
     }
 
     [Authorize]

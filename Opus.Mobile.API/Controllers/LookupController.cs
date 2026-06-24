@@ -85,4 +85,54 @@ public class LookupController(ILookupService lookupService) : ControllerBase
 
         return Ok(new APIResponse<IEnumerable<ComponentLookupItem>>(components));
     }
+
+    [Authorize]
+    [HttpGet("ArticleShelves/{articleId:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<IEnumerable<ArticleShelveLookupItem>>))]
+    public async Task<ActionResult> GetArticleShelves([FromRoute] int articleId)
+    {
+        var shelves = await lookupService.GetArticleShelves(articleId);
+
+        return Ok(new APIResponse<IEnumerable<ArticleShelveLookupItem>>(shelves));
+    }
+
+    [Authorize]
+    [HttpGet("Racks/{rackId:int}/Shelves")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<IEnumerable<ShelveLookupItem>>))]
+    public async Task<ActionResult> GetShelves([FromRoute] int rackId)
+    {
+        var shelves = await lookupService.GetShelves(rackId);
+
+        return Ok(new APIResponse<IEnumerable<ShelveLookupItem>>(shelves));
+    }
+
+    [Authorize]
+    [HttpGet("Stocks/{stockId:int}/Racks")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<IEnumerable<RackLookupItem>>))]
+    public async Task<ActionResult> GetRacks([FromRoute] int stockId)
+    {
+        var racks = await lookupService.GetRacks(stockId);
+
+        return Ok(new APIResponse<IEnumerable<RackLookupItem>>(racks));
+    }
+
+    [Authorize]
+    [HttpGet("Stocks")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<IEnumerable<StockLookupItem>>))]
+    public async Task<ActionResult> GetStocks()
+    {
+        var stocks = await lookupService.GetStocks();
+
+        return Ok(new APIResponse<IEnumerable<StockLookupItem>>(stocks));
+    }
+
+    [Authorize]
+    [HttpGet("Departments")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<IEnumerable<DepartmentLookupItem>>))]
+    public async Task<ActionResult> GetDepartments()
+    {
+        var departments = await lookupService.GetDepartments();
+
+        return Ok(new APIResponse<IEnumerable<DepartmentLookupItem>>(departments));
+    }
 }

@@ -15,4 +15,14 @@ public interface ILookupService
     Task<IEnumerable<TaskFieldComboLookupItem>> GetTaskFieldCombos(int taskFieldId);
 
     Task<IEnumerable<ComponentLookupItem>> GetComponents(int? userId, int? componentId, int? parentComponentId);
+
+    Task<IEnumerable<ArticleShelveLookupItem>> GetArticleShelves(int articleId);
+
+    Task<IEnumerable<ShelveLookupItem>> GetShelves(int rackId);
+
+    Task<IEnumerable<RackLookupItem>> GetRacks(int stockId);
+
+    Task<IEnumerable<StockLookupItem>> GetStocks();
+
+    Task<IEnumerable<DepartmentLookupItem>> GetDepartments();
 }

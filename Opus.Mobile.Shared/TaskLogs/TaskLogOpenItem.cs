@@ -1,4 +1,4 @@
-﻿namespace Opus.Mobile.Shared.Tasks;
+﻿namespace Opus.Mobile.Shared.TaskLogs;
 
 public class TaskLogOpenItem
 {
