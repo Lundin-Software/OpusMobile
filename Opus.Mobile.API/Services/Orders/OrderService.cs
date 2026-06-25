@@ -52,12 +52,7 @@ public class OrderService(OpusDBContext ctx) : IOrderService
 
             await ctx.SaveChangesAsync();
 
-            await RequestLabelPrint(new LabelPrintRequest
-            {
-                ReportName = "ReportOrderLocationLabel",
-                ParameterName = "p_orderID",
-                ParameterValue = orderId.ToString()
-            });
+            await RequestOrderLocationLabelPrint(orderId);
 
             return "OK";
         }
@@ -65,6 +60,16 @@ public class OrderService(OpusDBContext ctx) : IOrderService
         {
             return ex.InnerException?.Message ?? ex.Message;
         }
+    }
+
+    public async Task RequestOrderLocationLabelPrint(int orderId)
+    {
+        await RequestLabelPrint(new LabelPrintRequest
+        {
+            ReportName = "ReportOrderLocationLabel",
+            ParameterName = "p_orderID",
+            ParameterValue = orderId.ToString()
+        });
     }
 
     private static async Task RequestLabelPrint(LabelPrintRequest report)

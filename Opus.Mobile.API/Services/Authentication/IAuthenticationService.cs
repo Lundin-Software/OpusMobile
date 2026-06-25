@@ -4,5 +4,7 @@ namespace Opus.Mobile.API.Services.Authentication;
 
 public interface IAuthenticationService
 {
-    Task<LoginResponse> Login(LoginDTO login);
+    Task<LoginItem> Login(LoginRequest login);
+
+    Task<UserDetailsItem?> GetUserDetails(int userId);
 }

@@ -16,4 +16,10 @@ public interface IComponentService
     Task<ComponentDocumentItem> SaveComponentDocument(int userId, int componentId, SaveComponentDocumentRequest request);
 
     Task DeleteComponentDocument(int componentId, int componentDocumentId);
+
+    Task<ComponentDetailsItem?> GetComponentDetails(int employeeId, int componentId);
+
+    Task<IEnumerable<ComponentTaskItem>> GetComponentTasks(int employeeId, int componentId);
+
+    Task<IEnumerable<ComponentClassFieldItem>> GetComponentClassFields(int employeeId, int componentId);
 }

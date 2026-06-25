@@ -88,4 +88,53 @@ public class ComponentsController(IComponentService componentService) : Controll
 
         return Ok(new APIResponse<bool>(true));
     }
+
+    [Authorize]
+    [HttpGet("{componentId:int}/Details")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<ComponentDetailsItem>))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult> GetComponentDetails([FromRoute] int componentId)
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (userIdClaim is null || !int.TryParse(userIdClaim, out var userId))
+            return BadRequest("Could not get userId from JWT Token");
+
+        var details = await componentService.GetComponentDetails(userId, componentId);
+
+        if (details is null)
+            return NotFound();
+
+        return Ok(new APIResponse<ComponentDetailsItem>(details));
+    }
+
+    [Authorize]
+    [HttpGet("{componentId:int}/Tasks")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<IEnumerable<ComponentTaskItem>>))]
+    public async Task<ActionResult> GetComponentTasks([FromRoute] int componentId)
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (userIdClaim is null || !int.TryParse(userIdClaim, out var userId))
+            return BadRequest("Could not get userId from JWT Token");
+
+        var tasks = await componentService.GetComponentTasks(userId, componentId);
+
+        return Ok(new APIResponse<IEnumerable<ComponentTaskItem>>(tasks));
+    }
+
+    [Authorize]
+    [HttpGet("{componentId:int}/ClassFields")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<IEnumerable<ComponentClassFieldItem>>))]
+    public async Task<ActionResult> GetComponentClassFields([FromRoute] int componentId)
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (userIdClaim is null || !int.TryParse(userIdClaim, out var userId))
+            return BadRequest("Could not get userId from JWT Token");
+
+        var fields = await componentService.GetComponentClassFields(userId, componentId);
+
+        return Ok(new APIResponse<IEnumerable<ComponentClassFieldItem>>(fields));
+    }
 }

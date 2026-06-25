@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using NLog;
 using Opus.Mobile.API.Helpers;
+using Opus.Mobile.API.Middleware;
 using Opus.Mobile.API.Services.Articles;
 using Opus.Mobile.API.Services.Authentication;
 using Opus.Mobile.API.Services.Components;
@@ -130,6 +131,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.MapControllers();
 

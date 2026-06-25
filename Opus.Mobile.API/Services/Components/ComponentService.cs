@@ -43,8 +43,8 @@ public class ComponentService(OpusDBContext ctx) : IComponentService
         return new ComponentLookupDetails
         {
             ComponentDetails = await GetComponentDetails(employeeId, resolvedComponentId),
-            ComponentClassFields = await GetComponentClassFields(employeeId, resolvedComponentId),
-            ComponentTasks = await GetComponentTasks(employeeId, resolvedComponentId)
+            ComponentClassFields = [.. await GetComponentClassFields(employeeId, resolvedComponentId)],
+            ComponentTasks = [.. await GetComponentTasks(employeeId, resolvedComponentId)]
         };
     }
 
@@ -207,6 +207,45 @@ public class ComponentService(OpusDBContext ctx) : IComponentService
             .ToListAsync();
     }
 
+    public async Task<ComponentDetailsItem?> GetComponentDetails(int employeeId, int componentId)
+    {
+        var resolvedComponentId = await ResolveComponentId(componentId);
+
+        var details = (await ctx.Procedures.SpXama_ComponentDetailsAsync(employeeId, resolvedComponentId))
+            .FirstOrDefault();
+
+        if (details is null)
+            return null;
+
+        var component = await ctx.Components
+            .AsNoTracking()
+            .FirstOrDefaultAsync(component => component.Id == details.ID);
+
+        var componentClass = component?.ClassId is null
+            ? null
+            : await ctx.ComponentClasses
+                .AsNoTracking()
+                .FirstOrDefaultAsync(componentClass => componentClass.Id == component.ClassId);
+
+        return new ComponentDetailsItem
+        {
+            ComponentId = details.ID,
+            Name1 = details.Name1,
+            Name2 = details.Name2,
+            TagNr = details.TagNr,
+            SFI2 = details.SFI2,
+            TypeNr = details.TypeNr,
+            SerialNr = details.SerialNr,
+            IconImage = details.Image,
+            Image = component?.Image,
+            ComponentTree = details.ComponentTree,
+            ShowSFI = details.ShowSFI,
+            ParentId = details.ParentID,
+            ComponentClassId = componentClass?.Id,
+            ComponentClassName = componentClass?.Name
+        };
+    }
+
     private async Task<int> ResolveComponentId(int componentId)
     {
         var exists = await ctx.Components
@@ -242,44 +281,7 @@ public class ComponentService(OpusDBContext ctx) : IComponentService
             .ToList();
     }
 
-    private async Task<ComponentDetailsItem?> GetComponentDetails(int employeeId, int componentId)
-    {
-        var details = (await ctx.Procedures.SpXama_ComponentDetailsAsync(employeeId, componentId))
-            .FirstOrDefault();
-
-        if (details is null)
-            return null;
-
-        var component = await ctx.Components
-            .AsNoTracking()
-            .FirstOrDefaultAsync(component => component.Id == details.ID);
-
-        var componentClass = component?.ClassId is null
-            ? null
-            : await ctx.ComponentClasses
-                .AsNoTracking()
-                .FirstOrDefaultAsync(componentClass => componentClass.Id == component.ClassId);
-
-        return new ComponentDetailsItem
-        {
-            ComponentId = details.ID,
-            Name1 = details.Name1,
-            Name2 = details.Name2,
-            TagNr = details.TagNr,
-            SFI2 = details.SFI2,
-            TypeNr = details.TypeNr,
-            SerialNr = details.SerialNr,
-            IconImage = details.Image,
-            Image = component?.Image,
-            ComponentTree = details.ComponentTree,
-            ShowSFI = details.ShowSFI,
-            ParentId = details.ParentID,
-            ComponentClassId = componentClass?.Id,
-            ComponentClassName = componentClass?.Name
-        };
-    }
-
-    private async Task<List<ComponentClassFieldItem>> GetComponentClassFields(int employeeId, int componentId)
+    public async Task<IEnumerable<ComponentClassFieldItem>> GetComponentClassFields(int employeeId, int componentId)
     {
         var fields = await ctx.Procedures.SpXama_ComponentClassFieldsAsync(employeeId, componentId);
 
@@ -293,7 +295,7 @@ public class ComponentService(OpusDBContext ctx) : IComponentService
         }).ToList();
     }
 
-    private async Task<List<ComponentTaskItem>> GetComponentTasks(int employeeId, int componentId)
+    public async Task<IEnumerable<ComponentTaskItem>> GetComponentTasks(int employeeId, int componentId)
     {
         var tasks = await ctx.Procedures.SpXama_ComponentTasksAsync(employeeId, componentId);
 

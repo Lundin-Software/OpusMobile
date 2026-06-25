@@ -7,4 +7,6 @@ public interface IOrderService
     Task<IEnumerable<OrderItem>> GetOrders();
 
     Task<string> SetOrderLocation(int userId, int orderId, SetOrderLocationRequest request);
+
+    Task RequestOrderLocationLabelPrint(int orderId);
 }

@@ -1,6 +1,6 @@
 ﻿namespace Opus.Mobile.Shared.Authentication;
 
-public class LoginDTO
+public class LoginRequest
 {
     public string Username { get; set; } = "";
 

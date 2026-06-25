@@ -25,8 +25,8 @@ public class OrdersController(IOrderService orderService) : ControllerBase
     [HttpPost("{orderId:int}/Location")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<bool>))]
     public async Task<ActionResult> SetOrderLocation(
-    [FromRoute] int orderId,
-    [FromBody] SetOrderLocationRequest request)
+        [FromRoute] int orderId,
+        [FromBody] SetOrderLocationRequest request)
     {
         var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -39,5 +39,19 @@ public class OrdersController(IOrderService orderService) : ControllerBase
             return Problem(result);
 
         return Ok(new APIResponse<bool>(true));
+    }
+
+    [Authorize]
+    [HttpPost("{orderId:int}/Location/Label")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(APIResponse<string>))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> PrintOrderLocationLabel([FromRoute] int orderId)
+    {
+        if (orderId <= 0)
+            return BadRequest("OrderId is required.");
+
+        await orderService.RequestOrderLocationLabelPrint(orderId);
+
+        return Ok(new APIResponse<string>("OK\n\nRequest Sent"));
     }
 }

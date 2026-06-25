@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Opus.Mobile.Data.Context;
+using Opus.Mobile.Data.Models;
 using Opus.Mobile.Shared.TaskLogs;
 
 namespace Opus.Mobile.API.Services.TaskLogs;
@@ -58,7 +59,7 @@ public class TaskLogService(OpusDBContext ctx) : ITaskLogService
                 result.ComponentTree = task.Component.Name1;
             }
 
-            result.TaskLogs = await GetTaskLogs(task.Id);
+            result.TaskLogs = [.. await GetTaskLogs(task.Id)];
         }
 
         return result;
@@ -143,7 +144,73 @@ public class TaskLogService(OpusDBContext ctx) : ITaskLogService
         };
     }
 
-    private async Task<List<TaskLogHistoryItem>> GetTaskLogs(int taskId)
+    public async Task<bool> SaveAccomplishData(
+        int userId,
+        int taskLogId,
+        SaveAccomplishDataRequest request)
+    {
+        var taskLogExists = await ctx.TaskLogs
+            .AnyAsync(taskLog => taskLog.Id == taskLogId);
+
+        if (!taskLogExists)
+            return false;
+
+        foreach (var taskField in request.TaskFields)
+        {
+            await ctx.TaskFieldData.AddAsync(new TaskFieldData
+            {
+                TaskLogId = taskLogId,
+                TaskFieldId = taskField.TaskFieldId,
+                FieldData = taskField.FieldData
+            });
+        }
+
+        var existingAccomplishData = await ctx.AccomplishData
+            .Where(data => data.TaskLogId == taskLogId)
+            .ToListAsync();
+
+        ctx.AccomplishData.RemoveRange(existingAccomplishData);
+
+        await ctx.SaveChangesAsync();
+
+        foreach (var article in request.TaskArticles)
+        {
+            await ctx.AccomplishData.AddAsync(new AccomplishData
+            {
+                TaskLogId = taskLogId,
+                TaskId = request.TaskId,
+                ArticleId = article.ArticleId,
+                NrOfArt = article.ArticleValue,
+                EmployeeId = userId
+            });
+        }
+
+        await ctx.SaveChangesAsync();
+
+        return true;
+    }
+
+    public async Task<IEnumerable<TaskFieldItem>> GetTaskFields(
+        int taskLogId,
+        int? taskClassId)
+    {
+        var fields = await ctx.Procedures.spXama_TaskClassFieldsAsync(
+            taskLogId,
+            taskClassId);
+
+        return fields.Select(field => new TaskFieldItem
+        {
+            TaskFieldId = field.TaskFieldId,
+            FieldPrompt = field.FieldPrompt,
+            FieldData = field.FieldData?.ToString(),
+            FieldUnit = field.FieldUnit,
+            FieldType = field.FieldType?.Trim(),
+            FieldNr = field.FieldNr,
+            ColumnNr = field.ColumnNr
+        });
+    }
+
+    public async Task<IEnumerable<TaskLogHistoryItem>> GetTaskLogs(int taskId)
     {
         return await ctx.TaskLogs
             .AsNoTracking()
@@ -169,4 +236,5 @@ public class TaskLogService(OpusDBContext ctx) : ITaskLogService
             })
             .ToListAsync();
     }
+
 }

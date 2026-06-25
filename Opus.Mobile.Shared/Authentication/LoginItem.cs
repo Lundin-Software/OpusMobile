@@ -1,6 +1,6 @@
 ﻿namespace Opus.Mobile.Shared.Authentication;
 
-public class LoginResponse
+public class LoginItem
 {
     public string Token { get; set; } = "";
 }

@@ -5,6 +5,7 @@ using Opus.Mobile.API.Models.Exceptions;
 using Opus.Mobile.Data.Context;
 using Opus.Mobile.Data.Models;
 using Opus.Mobile.Shared.Authentication;
+using Opus.Mobile.Shared.Lookup;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Opus.Mobile.API.Services.Authentication;
 
 public class AuthenticationService(OpusDBContext ctx) : IAuthenticationService
 {
-    public async Task<LoginResponse> Login(LoginDTO login)
+    public async Task<LoginItem> Login(LoginRequest login)
     {
         var user = await ctx.Employees.FirstOrDefaultAsync(x =>
             x.ShortName != null &&
@@ -37,7 +38,7 @@ public class AuthenticationService(OpusDBContext ctx) : IAuthenticationService
 
         await ctx.SaveChangesAsync();
 
-        return new LoginResponse
+        return new LoginItem
         {
             Token = token
         };
@@ -64,5 +65,37 @@ public class AuthenticationService(OpusDBContext ctx) : IAuthenticationService
             signingCredentials: credentials);
 
         return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    public async Task<UserDetailsItem?> GetUserDetails(int userId)
+    {
+        var user = await ctx.Employees
+            .AsNoTracking()
+            .FirstOrDefaultAsync(employee => employee.Id == userId);
+
+        if (user is null)
+            return null;
+
+        var defaultRole = await (
+            from employeeRole in ctx.EmployeesRoles.AsNoTracking()
+            join role in ctx.Roles.AsNoTracking()
+                on employeeRole.RoleId equals role.Id
+            where employeeRole.EmployeeId == userId
+            orderby role.ShortName
+            select new RoleLookupItem
+            {
+                RoleId = role.Id,
+                ShortName = role.ShortName,
+                Name = role.Name
+            })
+            .FirstOrDefaultAsync();
+
+        return new UserDetailsItem
+        {
+            UserId = user.Id,
+            Name = user.Name,
+            ShortName = user.ShortName,
+            DefaultRole = defaultRole
+        };
     }
 }
