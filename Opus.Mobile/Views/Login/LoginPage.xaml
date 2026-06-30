@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Opus.Mobile.Views.Login.LoginPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Opus.Mobile.ViewModels"
+             x:DataType="viewModels:LoginViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ScrollView>
+
+        <Grid Padding="24"
+              RowDefinitions="Auto,Auto,Auto"
+              RowSpacing="24"
+              MaximumWidthRequest="520"
+              HorizontalOptions="Center"
+              VerticalOptions="Center">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="OPUS"
+                       FontSize="42"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+
+                <Label Text="Mobile"
+                       Style="{StaticResource Body1}"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{StaticResource Gray500}" />
+            </VerticalStackLayout>
+
+            <!-- Login form -->
+
+        </Grid>
+        
+    </ScrollView>
+
+</ContentPage>

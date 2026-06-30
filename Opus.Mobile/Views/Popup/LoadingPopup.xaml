@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage x:Class="Opus.Mobile.Views.Popup.LoadingPopup"
+                 xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:popup="clr-namespace:Mopups.Pages;assembly=Mopups"
+                 BackgroundColor="#80000000"
+                 CloseWhenBackgroundIsClicked="False"
+                 HideSoftInputOnTapped="True">
+
+    <Grid RowDefinitions="Auto,Auto"
+          RowSpacing="0"
+          Padding="10"
+          HorizontalOptions="Center"
+          VerticalOptions="Center">
+
+        <Border Grid.Row="0"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness=".2"
+                WidthRequest="300">
+
+            <Border.Shadow>
+                <Shadow Brush="#505050" Radius="1" />
+            </Border.Shadow>
+
+            <Grid ColumnDefinitions="Auto,*"
+                  HeightRequest="100"
+                  BackgroundColor="White">
+
+                <ActivityIndicator Grid.Column="0"
+                                   IsRunning="True"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Color="#0B5CAD"
+                                   Margin="20,0" />    
+
+                <Label Grid.Column="1"
+                       Text="{Binding LoadingText}"
+                       TextColor="#202020"
+                       FontSize="16"
+                       BackgroundColor="White"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       LineBreakMode="WordWrap"
+                       Padding="20,15" />
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1"
+                Stroke="#505050"
+                StrokeThickness="2"
+                BackgroundColor="LightGray"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Padding="10,4"
+                Margin="0,-19,0,0"
+                IsVisible="{Binding RetryTextVisible}">
+
+            <Label Text="{Binding RetryNr, StringFormat='Attempt #{0}'}"
+                   TextColor="Red"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Padding="10,0" />
+        </Border>
+    </Grid>
+</popup:PopupPage>

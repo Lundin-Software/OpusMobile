@@ -1,6 +1,12 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Syncfusion.Maui.Toolkit.Hosting;
+using Mopups.Hosting;
+using Opus.Mobile.Models;
+using Opus.Mobile.Services.Modules.Authentication;
+using Opus.Mobile.Services.Requests.RequestProcessors;
+using Opus.Mobile.Services.Requests.RequestProvider;
+using Opus.Mobile.ViewModels;
+using Opus.Mobile.Views.Login;
 
 namespace Opus.Mobile
 {
@@ -12,7 +18,7 @@ namespace Opus.Mobile
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
-                .ConfigureSyncfusionToolkit()
+                .ConfigureMopups()
                 .ConfigureMauiHandlers(handlers =>
                 {
 #if WINDOWS
@@ -36,6 +42,21 @@ namespace Opus.Mobile
 #endif
 
             builder.Services.AddSingleton<ModalErrorHandler>();
+
+            //Services
+            builder.Services.AddSingleton<IRequestProvider, RequestProvider>();
+            builder.Services.AddSingleton<IRequestProcessor, OpusRequestProcessor>();
+            builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+            builder.Services.AddSingleton<ILoginPreferencesStore, LoginPreferencesStore>();
+
+            //Views
+            builder.Services.AddSingleton<LoginPage>();
+
+            //ViewModels
+            builder.Services.AddSingleton<LoginViewModel>();
+
+            //API URL
+            ApplicationSettings.ApiBaseUrl = "https://localhost:44369/";
 
             return builder.Build();
         }

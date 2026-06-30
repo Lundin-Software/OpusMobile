@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="Opus.Mobile.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Shell.FlyoutBehavior="Disabled"
-    Title="Opus Mobile">
+<Shell x:Class="Opus.Mobile.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:login="clr-namespace:Opus.Mobile.Views.Login"
+       Shell.FlyoutBehavior="Disabled"
+       Title="Opus Mobile">
+
+    <ShellContent Route="Login"
+                  ContentTemplate="{DataTemplate login:LoginPage}"
+                  FlyoutItemIsVisible="False"
+                  Shell.FlyoutBehavior="Disabled" />  
 
 </Shell>

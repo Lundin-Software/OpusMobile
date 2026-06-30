@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace Opus.Mobile
+﻿namespace Opus.Mobile
 {
     public partial class App : Application
     {
