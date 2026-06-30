@@ -4,9 +4,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Opus.Mobile.ViewModels"
              x:DataType="viewModels:LoginViewModel"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Shell.NavBarIsVisible="False"
              Shell.FlyoutBehavior="Disabled"
-             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+             BackgroundColor="{StaticResource OpusLoginBG}">
 
     <ScrollView>
 
@@ -18,20 +19,114 @@
               VerticalOptions="Center">
 
             <!-- Header -->
-            <VerticalStackLayout Spacing="4">
-                <Label Text="OPUS"
-                       FontSize="42"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
-
-                <Label Text="Mobile"
-                       Style="{StaticResource Body1}"
-                       HorizontalTextAlignment="Center"
-                       TextColor="{StaticResource Gray500}" />
-            </VerticalStackLayout>
+            <Image Source="opus_login.png"
+                   Aspect="AspectFit"
+                   WidthRequest="150"
+                   HorizontalOptions="Center"/>
 
             <!-- Login form -->
+            <Border Grid.Row="1"
+                    Padding="20"
+                    WidthRequest="300"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="#353535">
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Entry Text="{Binding UserName}"
+                           Placeholder="Username"
+                           PlaceholderColor="#C8C8C8"
+                           TextColor="White"
+                           BackgroundColor="#404040"
+                           ReturnType="Next"
+                           IsEnabled="{Binding IsNotBusy}" />
+
+                    <Entry Text="{Binding Password}"
+                           Placeholder="Password"
+                           PlaceholderColor="#C8C8C8"
+                           TextColor="White"
+                           BackgroundColor="#404040"
+                           IsPassword="True"
+                           ReturnType="Go"
+                           ReturnCommand="{Binding LoginCommand}"
+                           IsEnabled="{Binding IsNotBusy}" />
+
+                    <Button Text="Login"
+                            Command="{Binding LoginCommand}"
+                            Margin="32,10,32,5"
+                            TextColor="#cfcfcf"
+                            CornerRadius="10"
+                            BorderColor="#cfcfcf"
+                            BorderWidth="0.5"
+                            BackgroundColor="Transparent"
+                            HeightRequest="40"
+                            Padding="0"
+                            IsEnabled="{Binding IsNotBusy}" />
+
+                    <HorizontalStackLayout Spacing="10"
+                                           HorizontalOptions="Center">
+                        <Switch IsToggled="{Binding RememberMe}"
+                                IsEnabled="{Binding IsNotBusy}" />
+
+                        <Label Text="Remember me"
+                               TextColor="White"
+                               FontSize="15"
+                               VerticalTextAlignment="Center" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10"
+                                           HorizontalOptions="Center">
+                        <Switch IsToggled="{Binding ShowSettings}"
+                                IsEnabled="{Binding IsNotBusy}" />
+
+                        <Label Text="Show settings"
+                               TextColor="White"
+                               FontSize="15"
+                               VerticalTextAlignment="Center" />
+                    </HorizontalStackLayout>
+
+                    <VerticalStackLayout Spacing="10"
+                                         IsVisible="{Binding ShowSettings}">
+
+                        <Entry Text="{Binding ApiBaseUrl}"
+                               Placeholder="Server address"
+                               PlaceholderColor="#C8C8C8"
+                               TextColor="White"
+                               BackgroundColor="#404040"
+                               Keyboard="Url"
+                               ReturnType="Next"
+                               IsEnabled="{Binding IsNotBusy}" />
+
+                        <Entry Text="{Binding TokenUsername}"
+                               Placeholder="Token username"
+                               PlaceholderColor="#C8C8C8"
+                               TextColor="White"
+                               BackgroundColor="#404040"
+                               ReturnType="Next"
+                               IsEnabled="{Binding IsNotBusy}" />
+
+                        <Entry Text="{Binding TokenPassword}"
+                               Placeholder="Token password"
+                               PlaceholderColor="#C8C8C8"
+                               TextColor="White"
+                               BackgroundColor="#404040"
+                               IsPassword="True"
+                               ReturnType="Done"
+                               IsEnabled="{Binding IsNotBusy}" />
+
+                        <Entry Text="{Binding Version}"
+                               Placeholder="App version"
+                               PlaceholderColor="#C8C8C8"
+                               TextColor="#C8C8C8"
+                               BackgroundColor="#404040"
+                               IsReadOnly="True" />
+
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
 
         </Grid>
         
