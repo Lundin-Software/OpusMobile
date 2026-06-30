@@ -22,7 +22,11 @@
             <Image Source="opus_login.png"
                    Aspect="AspectFit"
                    WidthRequest="150"
-                   HorizontalOptions="Center"/>
+                   HorizontalOptions="Center">
+                <Image.Behaviors>
+                    <mct:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+            </Image>
 
             <!-- Login form -->
             <Border Grid.Row="1"
