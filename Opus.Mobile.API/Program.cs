@@ -127,7 +127,9 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Opus Mobile API v1");
 });
 
+#if !DEBUG
 app.UseHttpsRedirection();
+#endif
 
 app.UseAuthentication();
 app.UseAuthorization();
