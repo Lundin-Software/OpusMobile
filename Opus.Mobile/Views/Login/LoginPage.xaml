@@ -12,14 +12,59 @@
     <ScrollView>
 
         <Grid Padding="24"
-              RowDefinitions="Auto,Auto,Auto"
+              RowDefinitions="Auto,Auto,Auto,Auto"
               RowSpacing="24"
               MaximumWidthRequest="520"
               HorizontalOptions="Center"
               VerticalOptions="Center">
 
+            <HorizontalStackLayout Grid.Row="0"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="Start"
+                                   Margin="0,0,-25,0">
+
+                <VerticalStackLayout Spacing="2"
+                                     WidthRequest="64"
+                                     Background="Transparent">
+                    <Image Source="{StaticResource IconImportSettings}"
+                           HeightRequest="32"
+                           WidthRequest="32"
+                           HorizontalOptions="Center"
+                           BackgroundColor="Transparent">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImportSettings_Clicked" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label Text="Import Settings"
+                           TextColor="#C8C8C8"
+                           FontSize="10"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="2"
+                                     WidthRequest="64">
+                    <Image Source="{StaticResource IconExportSettings}"
+                           HeightRequest="32"
+                           WidthRequest="32"
+                           HorizontalOptions="Center"
+                           BackgroundColor="Transparent">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ExportSettings_Clicked" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label Text="Export Settings"
+                           TextColor="#C8C8C8"
+                           FontSize="10"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+
+            </HorizontalStackLayout>
+
             <!-- Header -->
-            <Image Source="opus_login.png"
+            <Image Grid.Row="1"
+                   Source="opus_login.png"
                    Aspect="AspectFit"
                    WidthRequest="150"
                    HorizontalOptions="Center">
@@ -29,7 +74,7 @@
             </Image>
 
             <!-- Login form -->
-            <Border Grid.Row="1"
+            <Border Grid.Row="2"
                     Padding="20"
                     WidthRequest="300"
                     StrokeThickness="0"

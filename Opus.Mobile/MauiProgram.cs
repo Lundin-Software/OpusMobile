@@ -7,6 +7,8 @@ using Opus.Mobile.Services.Requests.RequestProcessors;
 using Opus.Mobile.Services.Requests.RequestProvider;
 using Opus.Mobile.ViewModels;
 using Opus.Mobile.Views.Login;
+using UraniumUI;
+using ZXing.Net.Maui.Controls;
 
 namespace Opus.Mobile
 {
@@ -18,6 +20,9 @@ namespace Opus.Mobile
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .UseUraniumUI()
+                .UseUraniumUIMaterial()
+                .UseBarcodeReader()    
                 .ConfigureMopups()
                 .ConfigureMauiHandlers(handlers =>
                 {
@@ -34,6 +39,8 @@ namespace Opus.Mobile
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("SegoeUI-Semibold.ttf", "SegoeSemibold");
                     fonts.AddFont("FluentSystemIcons-Regular.ttf", FluentUI.FontFamily);
+
+                    fonts.AddFontAwesomeIconFonts();
                 });
 
 #if DEBUG

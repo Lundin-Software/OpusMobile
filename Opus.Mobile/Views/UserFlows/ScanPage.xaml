@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Opus.Mobile.Views.UserFlows.ScanPage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="Black">
+
+    <Grid>
+        <zxing:CameraBarcodeReaderView x:Name="cameraView"
+                                       IsDetecting="True"
+                                       BarcodesDetected="BarcodeDetected" />
+
+        <Grid RowDefinitions="*,*,*"
+              InputTransparent="True">
+            <BoxView Color="#60000000" />
+
+            <BoxView Grid.Row="1"
+                     Color="#E1E1E1"
+                     HeightRequest="2"
+                     Margin="0,240" />
+
+            <BoxView Grid.Row="2"
+                     Color="#60000000" />
+        </Grid>
+
+        <VerticalStackLayout VerticalOptions="End"
+                             Padding="16"
+                             Spacing="10">
+            <BoxView Color="#404040"
+                     HeightRequest="2" />
+
+            <Button Text="Cancel"
+                    Clicked="CancelButton_Clicked"
+                    TextColor="#404040"
+                    BorderColor="#404040"
+                    BorderWidth="2"
+                    CornerRadius="8"
+                    BackgroundColor="#E1E1E1" />
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

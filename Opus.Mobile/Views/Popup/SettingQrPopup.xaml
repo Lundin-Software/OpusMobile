@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:popup="clr-namespace:Mopups.Pages;assembly=Mopups"
+                 x:Class="Opus.Mobile.Views.Popup.SettingQrPopup"
+                 xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+                 xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+                 xmlns:viewModels="clr-namespace:Opus.Mobile.ViewModels"
+                 x:DataType="viewModels:LoginViewModel">
+
+    <popup:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8"
+                                   DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True" />
+    </popup:PopupPage.Animation>
+
+    <Border StrokeShape="RoundRectangle 10"
+            BackgroundColor="White"
+            WidthRequest="300"
+            HeightRequest="350"
+            Margin="12"
+            Padding="20"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+
+        <VerticalStackLayout Spacing="12"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+
+            <zxing:BarcodeGeneratorView Format="QrCode"
+                                        WidthRequest="250"
+                                        HeightRequest="250"
+                                        Value="{Binding SettingsJson}" />
+
+            <Button Text="Close"
+                    Clicked="Close_Clicked"
+                    TextColor="#404040"
+                    BorderColor="#404040"
+                    BorderWidth="1"
+                    CornerRadius="8"
+                    BackgroundColor="Transparent"
+                    HeightRequest="40" />
+
+        </VerticalStackLayout>
+
+    </Border>
+
+</popup:PopupPage>

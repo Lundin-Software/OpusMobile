@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>    
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:fontawesome="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome">
+
+    <FontImageSource x:Key="IconImportSettings"
+                     FontFamily="FASolid"
+                     Glyph="{x:Static fontawesome:Solid.Qrcode}"
+                     Size="40"
+                     Color="White" />
+
+    <FontImageSource x:Key="IconExportSettings"
+                     FontFamily="FASolid"
+                     Glyph="{x:Static fontawesome:Solid.ShareFromSquare}"
+                     Size="40"
+                     Color="White" />
+
+</ResourceDictionary>

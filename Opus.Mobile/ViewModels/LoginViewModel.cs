@@ -5,6 +5,9 @@ using Opus.Mobile.Services.Modules.Authentication;
 using Opus.Mobile.Services.NavigationService;
 using Opus.Mobile.Shared.Authentication;
 using Opus.Mobile.Shared.Models;
+using System.Text;
+using System.Text.Json;
+using System.Web;
 
 namespace Opus.Mobile.ViewModels;
 
@@ -38,6 +41,9 @@ public partial class LoginViewModel : BaseViewModel
 
     [ObservableProperty]
     private string loginTrace = string.Empty;
+
+    [ObservableProperty]
+    private string settingsJson = string.Empty;
 
     public string Version => AppInfo.Current.VersionString;
 
@@ -224,5 +230,123 @@ public partial class LoginViewModel : BaseViewModel
         LoginTrace = message;
 
         await PopupNavigationService.ShowError(message, waitForDismissal: true);
+    }
+
+    public void GenerateSettings()
+    {
+        var settings = new LoginSettingsModel
+        {
+            Username = UserName,
+            Password = Password,
+            ApiUrl = ApiBaseUrl,
+            TokenUsername = TokenUsername,
+            TokenPassword = TokenPassword
+        };
+
+        SettingsJson = JsonSerializer.Serialize(settings);
+    }
+
+    public bool ImportSettings(string value, out string error)
+    {
+        var settings = TryParseSettings(value);
+
+        if (settings is null)
+        {
+            error = "Invalid settings QR code.";
+            return false;
+        }
+
+        UserName = settings.Username?.Trim() ?? string.Empty;
+        Password = settings.Password ?? string.Empty;
+        ApiBaseUrl = settings.ApiUrl ?? string.Empty;
+        TokenUsername = settings.TokenUsername?.Trim() ?? string.Empty;
+        TokenPassword = settings.TokenPassword ?? string.Empty;
+
+        ApplyConnectionSettings();
+        SaveSettings();
+
+        error = string.Empty;
+        return true;
+    }
+
+    private static LoginSettingsModel? TryParseSettings(string barcode)
+    {
+        foreach (var candidate in GetPayloadCandidates(barcode))
+        {
+            try
+            {
+                var trimmed = candidate.Trim();
+
+                if (trimmed.StartsWith('"'))
+                {
+                    var inner = JsonSerializer.Deserialize<string>(trimmed);
+                    if (!string.IsNullOrWhiteSpace(inner))
+                        return TryParseSettings(inner);
+                }
+
+                if (trimmed.StartsWith('{'))
+                    return JsonSerializer.Deserialize<LoginSettingsModel>(trimmed);
+            }
+            catch
+            {
+            }
+        }
+
+        return null;
+    }
+
+    private static IEnumerable<string> GetPayloadCandidates(string barcode)
+    {
+        var normalized = barcode
+            .Replace("\0", string.Empty)
+            .Trim()
+            .Trim('\uFEFF', '\u200B')
+            .Trim();
+
+        if (string.IsNullOrWhiteSpace(normalized))
+            yield break;
+
+        yield return normalized;
+
+        var htmlDecoded = HttpUtility.HtmlDecode(normalized);
+        if (!string.IsNullOrWhiteSpace(htmlDecoded) && htmlDecoded != normalized)
+            yield return htmlDecoded;
+
+        var urlDecoded = TryUrlDecode(normalized);
+        if (!string.IsNullOrWhiteSpace(urlDecoded) && urlDecoded != normalized)
+            yield return urlDecoded;
+
+        var base64Decoded = TryBase64Decode(normalized);
+        if (!string.IsNullOrWhiteSpace(base64Decoded))
+            yield return base64Decoded;
+    }
+
+    private static string? TryUrlDecode(string value)
+    {
+        try
+        {
+            return Uri.UnescapeDataString(value);
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    private static string? TryBase64Decode(string value)
+    {
+        try
+        {
+            var base64 = value.Trim();
+
+            if (base64.Length % 4 != 0)
+                base64 = base64.PadRight(base64.Length + 4 - base64.Length % 4, '=');
+
+            return Encoding.UTF8.GetString(Convert.FromBase64String(base64));
+        }
+        catch
+        {
+            return null;
+        }
     }
 }
