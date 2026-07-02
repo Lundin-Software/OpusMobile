@@ -3,12 +3,19 @@
        xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:login="clr-namespace:Opus.Mobile.Views.Login"
+       xmlns:todos="clr-namespace:Opus.Mobile.Views.Todos"
        Shell.FlyoutBehavior="Disabled"
        Title="Opus Mobile">
 
     <ShellContent Route="Login"
                   ContentTemplate="{DataTemplate login:LoginPage}"
                   FlyoutItemIsVisible="False"
-                  Shell.FlyoutBehavior="Disabled" />  
+                  Shell.FlyoutBehavior="Disabled"/>
+
+    <FlyoutItem Title="To Do"
+                Route="Todos"
+                FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent ContentTemplate="{DataTemplate todos:TodosPage}" />
+    </FlyoutItem>
 
 </Shell>

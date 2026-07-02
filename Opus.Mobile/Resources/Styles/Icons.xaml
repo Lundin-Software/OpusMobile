@@ -16,4 +16,10 @@
                      Size="40"
                      Color="White" />
 
+    <FontImageSource x:Key="IconTodosListUser"
+                     FontFamily="FASolid"
+                     Glyph="{x:Static fontawesome:Solid.User}"
+                     Size="14"
+                     Color="{StaticResource Tl.MutedLight}" />
+
 </ResourceDictionary>

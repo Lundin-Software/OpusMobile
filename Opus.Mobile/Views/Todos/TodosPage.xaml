@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:todoModels="clr-namespace:Opus.Mobile.Models.Modules.Todos"
+             xmlns:viewModels="clr-namespace:Opus.Mobile.ViewModels.Todos"
+             x:DataType="viewModels:TodosViewModel"
+             x:Name="RootPage"
+             x:Class="Opus.Mobile.Views.Todos.TodosPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="TodoItemTemplate"
+                      x:DataType="todoModels:TodoModel">
+            <Border Style="{StaticResource Tl.Panel}">
+                <Grid ColumnDefinitions="4,*">
+                    <BoxView Color="{Binding StatusColor}" />
+
+                    <Grid Grid.Column="1"
+                          RowDefinitions="Auto,Auto"
+                          RowSpacing="10"
+                          Padding="12,10">
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BindingContext.OpenTodoCommand, Source={x:Reference RootPage}, x:DataType=ContentPage}"
+                                                  CommandParameter="{Binding .}" />
+                        </Grid.GestureRecognizers>
+
+                        <Grid ColumnDefinitions="*,Auto"
+                              ColumnSpacing="10">
+                            <HorizontalStackLayout Spacing="5"
+                                                   VerticalOptions="Center">
+                                <Image Source="{StaticResource IconTodosListUser}"
+                                       HeightRequest="14"
+                                       VerticalOptions="Center" />  
+
+                                <Label Text="{Binding DisplayResponsibleRoleName}"
+                                       Style="{StaticResource Tl.ItemMetaStrong}"
+                                       LineBreakMode="TailTruncation" />
+                            </HorizontalStackLayout>
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding RemainingText}"
+                                   Style="{StaticResource Tl.MetricLabel}"
+                                   TextColor="{Binding StatusColor}"
+                                   VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <Border Grid.Row="1"
+                                Style="{StaticResource Tl.PanelInner}">
+                            <Grid RowDefinitions="Auto,Auto"
+                                  RowSpacing="6">
+                                <Label Text="{Binding Title}"
+                                       Style="{StaticResource Tl.ItemTitle}"
+                                       LineBreakMode="WordWrap"
+                                       MaxLines="3" />
+
+                                <Label Grid.Row="1"
+                                       Text="{Binding ComponentTree}"
+                                       Style="{StaticResource Tl.ItemMetaStrong}"
+                                       TextColor="{StaticResource Tl.InfoFg}"
+                                       LineBreakMode="WordWrap"
+                                       IsVisible="{Binding HasComponentTree}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*"
+          Padding="8,6"
+          RowSpacing="10">
+
+        <Grid ColumnDefinitions="*,*"
+              ColumnSpacing="8">
+            <Border Style="{StaticResource Tl.SegmentTab}">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowScheduledCommand}" />
+                </Border.GestureRecognizers>
+
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border"
+                                 Binding="{Binding IsScheduledSelected}"
+                                 Value="True">
+                        <Setter Property="BackgroundColor"
+                                Value="{StaticResource Tl.InfoFg}" />
+                    </DataTrigger>
+                </Border.Triggers>
+
+                <Label Text="{Binding ScheduledCount, StringFormat='Scheduled ({0})'}"
+                       Style="{StaticResource Tl.SegmentTabLabel}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding IsScheduledSelected}"
+                                     Value="True">
+                            <Setter Property="TextColor"
+                                    Value="White" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </Border>
+
+            <Border Grid.Column="1"
+                    Style="{StaticResource Tl.SegmentTab}">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowUnscheduledCommand}" />
+                </Border.GestureRecognizers>
+
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border"
+                                 Binding="{Binding IsUnscheduledSelected}"
+                                 Value="True">
+                        <Setter Property="BackgroundColor"
+                                Value="{StaticResource Tl.InfoFg}" />
+                    </DataTrigger>
+                </Border.Triggers>
+
+                <Label Text="{Binding UnscheduledCount, StringFormat='Unscheduled ({0})'}"
+                       Style="{StaticResource Tl.SegmentTabLabel}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding IsUnscheduledSelected}"
+                                     Value="True">
+                            <Setter Property="TextColor"
+                                    Value="White" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </Border>
+        </Grid>
+
+        <RefreshView Grid.Row="1"
+                     Command="{Binding LoadTodosCommand}"
+                     IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView ItemsSource="{Binding Todos}"
+                            ItemTemplate="{StaticResource TodoItemTemplate}"
+                            SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.EmptyView>
+                    <Grid Padding="24"
+                          MinimumHeightRequest="220">
+                        <Label Text="{Binding EmptyText}"
+                               Style="{StaticResource Tl.ItemMetaStrong}"
+                               FontSize="20"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center" />
+                    </Grid>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+
+</ContentPage>

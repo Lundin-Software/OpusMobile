@@ -14,7 +14,13 @@ public partial class LoginPage : ContentPage
 	{
 		InitializeComponent();
 
-        BindingContext = this.viewModel = viewModel;
+        this.viewModel = viewModel;
+        BindingContext = viewModel;
+
+        viewModel.AfterLoginAsync = async () =>
+        {
+            await Shell.Current.GoToAsync("//Todos");
+        };
     }
 
     protected override bool OnBackButtonPressed() => true;
