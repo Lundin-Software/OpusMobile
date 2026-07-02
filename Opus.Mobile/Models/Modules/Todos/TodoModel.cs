@@ -32,11 +32,9 @@ public class TodoModel : Shared.Todos.TodoItem
             if (LeftTime is null)
                 return string.Empty;
 
-            var value = LeftTime.Value.ToString("0.##");
-
             return string.IsNullOrWhiteSpace(LeftTimeChar)
-                ? value
-                : $"{value} {LeftTimeChar}";
+                ? LeftTime.Value.ToString("0.##")
+                : $"{LeftTime.Value:0.##} {LeftTimeChar}";
         }
     }
 

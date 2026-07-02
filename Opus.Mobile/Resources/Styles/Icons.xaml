@@ -22,4 +22,10 @@
                      Size="14"
                      Color="{StaticResource Tl.MutedLight}" />
 
+    <FontImageSource x:Key="IconTodosListTaskType"
+                 FontFamily="FASolid"
+                 Glyph="{x:Static fontawesome:Solid.ClipboardList}"
+                 Size="14"
+                 Color="{StaticResource Tl.InfoFg}" />
+
 </ResourceDictionary>

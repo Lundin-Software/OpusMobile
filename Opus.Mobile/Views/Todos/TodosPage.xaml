@@ -27,15 +27,31 @@
 
                         <Grid ColumnDefinitions="*,Auto"
                               ColumnSpacing="10">
-                            <HorizontalStackLayout Spacing="5"
+                            <HorizontalStackLayout Spacing="12"
                                                    VerticalOptions="Center">
-                                <Image Source="{StaticResource IconTodosListUser}"
-                                       HeightRequest="14"
-                                       VerticalOptions="Center" />  
 
-                                <Label Text="{Binding DisplayResponsibleRoleName}"
-                                       Style="{StaticResource Tl.ItemMetaStrong}"
-                                       LineBreakMode="TailTruncation" />
+                                <HorizontalStackLayout Spacing="5"
+                                                       VerticalOptions="Center">
+                                    <Image Source="{StaticResource IconTodosListUser}"
+                                           HeightRequest="14"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="{Binding DisplayResponsibleRoleName}"
+                                           Style="{StaticResource Tl.ItemMetaStrong}"
+                                           LineBreakMode="TailTruncation" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="5"
+                                                       VerticalOptions="Center">
+                                    <Image Source="{StaticResource IconTodosListTaskType}"
+                                           HeightRequest="14"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="{Binding DisplayTaskTypeName}"
+                                           Style="{StaticResource Tl.ItemMetaStrong}"
+                                           LineBreakMode="TailTruncation" />
+                                </HorizontalStackLayout>
+
                             </HorizontalStackLayout>
 
                             <Label Grid.Column="1"
